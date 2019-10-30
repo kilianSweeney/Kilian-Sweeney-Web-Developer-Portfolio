@@ -3,6 +3,7 @@ import './App.css';
 import {work} from './constants/constants'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import Mywork from './components/mywork';
 
 function App() {
   return (
@@ -23,18 +24,8 @@ function App() {
           <h1>some samples of my work</h1>
           {work.map((item, key) =>
               <div key={key} className="row">
-                <div className="col-md-6 p-4">
-                  <div className="image-holder">
-                    <img alt={item.col1.image.title} src={item.col1.image.src}></img>
-                  </div>
-                  <p className="text-left">{item.col1.copy}</p>
-                </div>
-                <div className="col-md-6 p-4">
-                  <div className="image-holder">
-                    <img alt={item.col2.image.title} src={item.col2.image.src}></img>
-                  </div>
-                  <p className="text-left">{item.col2.copy}</p>
-                </div>
+                <Mywork workitem={item.col1}></Mywork>
+                <Mywork workitem={item.col2}></Mywork>
               </div>
             )
           }
